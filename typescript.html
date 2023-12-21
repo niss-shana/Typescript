@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Click Counter</title>
+    <style>
+        body {
+            text-align: center;
+            padding: 50px;
+
+        }
+        #Count {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        #clickButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="s1">
+        <div id="Count">Number of clicks: 0</div>
+        <button id="clickButton" onclick="Buttonclick()">Click me!</button>
+    </div>
+
+    <script>
+        let Count = 0;
+        let colors = ['#FF0000', '#00FF00', '#0000FF'];
+        let currentColorIndex = 0;
+
+        function Buttonclick() {
+            Count++;
+            document.getElementById('Count').textContent = 'Number of clicks: ' + Count;
+            changeButtonColor();
+        }
+
+        function changeButtonColor() {
+            let button = document.getElementById('clickButton');
+            button.style.backgroundColor = colors[currentColorIndex];
+            currentColorIndex = (currentColorIndex + 1) % colors.length;
+        }
+    </script>
+
+</body>
+</html>
